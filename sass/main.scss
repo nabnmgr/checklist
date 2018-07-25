@@ -1,0 +1,190 @@
+// COLOR VARIABLES
+$color-primary: #5755d9;
+$color-primary-dark: #3c39d3;
+$color-primary-light: #acb3c2;
+
+$color-black-1: #353535;
+$color-black-2: #444140;
+
+$color-white: #fcfcfe;
+
+$color-grey-light-1: #f8fafc;
+$color-grey-light-2: #f8fafc;
+
+$color-grey-dark-1: #8795a1;
+$color-grey-dark-2: #606f7b;
+
+// FONT VARIABLES
+$font-primary: "PT Sans", sans-serif;
+
+// RESETS
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-black-2;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+////////////////////////////////////////////////
+/////////////////////////////////////////////
+///////////// HEADER ////////////////////
+
+header {
+  background: $color-primary;
+  color: $color-grey-light-1;
+  padding: 2rem 0;
+}
+
+.heading--1,
+.heading--3 {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+////////////////////////////////////////////////
+/////////////////////////////////////////////
+///////////// ACTION BAR ////////////////////
+
+.actions {
+  background-color: $color-white;
+  border-bottom: 1px solid $color-primary-light;
+  padding: 1rem;
+}
+
+.actions__container {
+  max-width: 60rem;
+  margin: 0 auto;
+  min-height: 4rem;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+////////////////////////////////////////////////
+/////////////////////////////////////////////
+///////////// FORM INPUTS ////////////////////
+.input {
+  border: 1px solid $color-primary-light;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  height: 3rem;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown {
+  border-radius: 0;
+  border: 1px solid $color-primary-light;
+  background: white;
+  font-size: 1.4rem;
+  font-weight: 300;
+  height: 3rem;
+  margin-right: 0.8rem;
+}
+
+////////////////////////////////////////////////
+/////////////////////////////////////////////
+///////////// BTNS ////////////////////
+
+.btn {
+  border: none;
+  font-weight: 500;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.btn--primary {
+  background: $color-primary;
+  border: 1px solid $color-primary;
+  color: $color-grey-light-2;
+}
+
+.btn--primary:hover {
+  background: $color-primary-dark;
+}
+
+.btn--secondary {
+  background: $color-grey-dark-1;
+  border: 1px solid $color-grey-dark-1;
+  color: $color-grey-light-2;
+}
+
+.btn--secondary:hover {
+  background: $color-grey-dark-2;
+  color: $color-grey-light-2;
+}
+
+.btn--remove {
+  background: #ef5753;
+  border: 1px solid #ef5753;
+  color: $color-grey-light-1;
+}
+
+.btn--remove:hover {
+  background: #e3342f;
+}
+
+////////////////////////////////////////////////
+/////////////////////////////////////////////
+///////////// CHECKLIST ITEM ////////////////////
+.list-item {
+  text-decoration: none;
+  color: #333333;
+  background: $color-white;
+  border: 1px solid #dedfe0;
+  margin: 2rem 0;
+  padding: 2rem;
+  display: block;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.list-item:hover {
+  background: $color-grey-light-1;
+}
+
+.list-item__title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.list-item__subtitle {
+  color: #666;
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.empty-message {
+  text-align: center;
+  margin: 3.2rem 0;
+  font-size: 1.6rem;
+}
