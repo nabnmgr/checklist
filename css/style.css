@@ -18,6 +18,9 @@ body {
 button {
   cursor: pointer; }
 
+a {
+  text-decoration: none; }
+
 .container {
   max-width: 60rem;
   margin: 0 auto;
