@@ -69,6 +69,7 @@ header {
 
 .btn {
   border: none;
+  height: 4rem;
   font-weight: 500;
   font-size: 1.4rem;
   padding: 1rem 2rem;
@@ -130,3 +131,30 @@ header {
   text-align: center;
   margin: 3.2rem 0;
   font-size: 1.6rem; }
+
+.edit {
+  margin-top: 4rem; }
+  .edit #title,
+  .edit #add-task {
+    border: 1px solid #acb3c2;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    height: 4rem;
+    margin: 1rem 0 2rem 0;
+    padding: 0.5rem 1rem; }
+  .edit #title {
+    width: 100%; }
+  .edit #add-task {
+    width: 50%; }
+  .edit label {
+    font-weight: 700;
+    display: block; }
+  .edit .btn {
+    margin-left: 1rem; }
+
+.edit-actions {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between; }
+  .edit-actions .btn {
+    width: 48%; }

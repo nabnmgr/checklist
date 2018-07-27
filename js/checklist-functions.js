@@ -16,6 +16,15 @@ const saveChecklists = function(data) {
   localStorage.setItem("checklists", JSON.stringify(data));
 };
 
+// remove a checklist
+const removeList = id => {
+  const listIndex = checklists.findIndex(checklist => checklist.id === id);
+  // findIndex method either returns the index of the first element or -1
+  if (listIndex > -1) {
+    checklists.splice(listIndex, 1);
+  }
+};
+
 // generate checklist items
 const populateList = function(lists) {
   let html = "";
