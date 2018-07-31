@@ -1,4 +1,5 @@
 const checklistsEl = document.querySelector("#checklists");
+const itemListEl = document.querySelector(".items");
 
 // check if checklists exists in localStorage
 const getChecklists = function() {
@@ -25,7 +26,7 @@ const removeList = id => {
   }
 };
 
-// generate checklist items
+// generate checklists results
 const populateList = function(lists) {
   let html = "";
 
@@ -53,11 +54,31 @@ const emptyMsg = function() {
 
 // add item for a checklist
 const addChecklistItem = function(checklist, item) {
-  const itemFound = checklist.items.some(listItem => listItem === item);
+  const itemFound = checklist.items.some(listItem => listItem.name === item);
   console.log(itemFound);
   if (!itemFound) {
-    checklist.items.push(item);
+    checklist.items.push({
+      name: item,
+      completed: false
+    });
+    populateItems(checklist.items);
   } else {
     console.log("Item alreaddy here");
   }
+};
+
+// generate items within a checklist
+const populateItems = function(items) {
+  let html = "";
+  items.forEach(item => {
+    html += `
+      <li class="item">
+        <p class="item__name">${item.name}</p>
+        <a class="item__delete">
+          <ion-icon name="trash"></ion-icon>
+        </a>
+      </li>
+    `;
+  });
+  itemListEl.innerHTML = html;
 };

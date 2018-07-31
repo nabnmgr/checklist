@@ -4,6 +4,12 @@ const removeBtn = document.querySelector("#remove");
 const itemEl = document.querySelector("#checklist__item");
 const addTaskBtn = document.querySelector("#checklist__add");
 
+const item = document.querySelector(".item");
+const itemText = document.querySelector(".item__name");
+const itemDelete = document.querySelector(".item__delete");
+
+// GET CLICKED CHECKLIST
+
 const listId = location.hash.substring(1);
 const checklists = getChecklists();
 const checklist = checklists.find(checklist => checklist.id === listId);
@@ -13,6 +19,8 @@ if (checklist === undefined) {
 }
 
 titleEl.value = checklist.title;
+// load containing items
+populateItems(checklist.items);
 
 saveBtn.addEventListener("click", () => {
   checklist.title = titleEl.value;
@@ -37,3 +45,9 @@ addTaskBtn.addEventListener("click", () => {
     console.log("empty");
   }
 });
+
+itemListEl.addEventListener("click", e => {
+  console.log(e.target);
+});
+
+// remove item from a checklist

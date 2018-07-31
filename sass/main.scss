@@ -230,11 +230,46 @@ header {
 }
 
 .edit-actions {
-  margin-top: 4rem;
+  margin: 4rem 0;
   display: flex;
   justify-content: space-between;
 
   .btn {
     width: 48%;
+  }
+}
+
+// ITEMS
+
+.items {
+  margin: 1rem 0;
+  list-style: none;
+
+  .item {
+    background: rgb(246, 246, 246);
+    margin: 1.5rem 0;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+
+    &__name {
+      letter-spacing: 1px;
+    }
+
+    &__delete {
+      font-size: 2.2rem;
+      color: $color-grey-dark-2;
+      transition: all 0.2s;
+
+      &:hover {
+        color: #ef5753;
+      }
+    }
+
+    &:hover {
+      background: $color-grey-light-1;
+    }
   }
 }
