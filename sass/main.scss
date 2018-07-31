@@ -198,11 +198,11 @@ header {
 /////////////////////////////////////////////
 ///////////// EDIT  ////////////////////
 
-.edit {
+.checklist__edit {
   margin-top: 4rem;
 
-  #title,
-  #add-task {
+  #checklist__title,
+  #checklist__item {
     border: 1px solid $color-primary-light;
     border-radius: 3px;
     font-size: 1.4rem;
@@ -211,11 +211,11 @@ header {
     padding: 0.5rem 1rem;
   }
 
-  #title {
+  #checklist__title {
     width: 100%;
   }
 
-  #add-task {
+  #checklist__item {
     width: 50%;
   }
 

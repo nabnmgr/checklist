@@ -132,24 +132,24 @@ header {
   margin: 3.2rem 0;
   font-size: 1.6rem; }
 
-.edit {
+.checklist__edit {
   margin-top: 4rem; }
-  .edit #title,
-  .edit #add-task {
+  .checklist__edit #checklist__title,
+  .checklist__edit #checklist__item {
     border: 1px solid #acb3c2;
     border-radius: 3px;
     font-size: 1.4rem;
     height: 4rem;
     margin: 1rem 0 2rem 0;
     padding: 0.5rem 1rem; }
-  .edit #title {
+  .checklist__edit #checklist__title {
     width: 100%; }
-  .edit #add-task {
+  .checklist__edit #checklist__item {
     width: 50%; }
-  .edit label {
+  .checklist__edit label {
     font-weight: 700;
     display: block; }
-  .edit .btn {
+  .checklist__edit .btn {
     margin-left: 1rem; }
 
 .edit-actions {

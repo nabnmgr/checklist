@@ -50,3 +50,14 @@ const populateList = function(lists) {
 const emptyMsg = function() {
   return '<p class="empty-message">No checklist to show</p>';
 };
+
+// add item for a checklist
+const addChecklistItem = function(checklist, item) {
+  const itemFound = checklist.items.some(listItem => listItem === item);
+  console.log(itemFound);
+  if (!itemFound) {
+    checklist.items.push(item);
+  } else {
+    console.log("Item alreaddy here");
+  }
+};

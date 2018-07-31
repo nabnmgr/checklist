@@ -11,7 +11,7 @@ document.querySelector("#create-checklist").addEventListener("click", () => {
   checklists.push({
     id,
     title: "",
-    tasks: [],
+    items: [],
     createdAt: timestamp,
     updatedAt: timestamp
   });
