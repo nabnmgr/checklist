@@ -171,7 +171,8 @@ header {
     align-items: center;
     transition: all 0.2s; }
     .items .item__name {
-      letter-spacing: 1px; }
+      letter-spacing: 1px;
+      font-size: 1.6rem; }
     .items .item__delete {
       font-size: 2.2rem;
       color: #606f7b;

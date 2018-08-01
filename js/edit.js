@@ -1,15 +1,14 @@
 const titleEl = document.querySelector("#checklist__title");
 const saveBtn = document.querySelector("#edit");
 const removeBtn = document.querySelector("#remove");
-const itemEl = document.querySelector("#checklist__item");
+const newItemEl = document.querySelector("#checklist__item");
 const addTaskBtn = document.querySelector("#checklist__add");
 
-const item = document.querySelector(".item");
+const itemEl = document.querySelector(".item");
 const itemText = document.querySelector(".item__name");
 const itemDelete = document.querySelector(".item__delete");
 
 // GET CLICKED CHECKLIST
-
 const listId = location.hash.substring(1);
 const checklists = getChecklists();
 const checklist = checklists.find(checklist => checklist.id === listId);
@@ -19,6 +18,7 @@ if (checklist === undefined) {
 }
 
 titleEl.value = checklist.title;
+
 // load containing items
 populateItems(checklist.items);
 
@@ -29,25 +29,47 @@ saveBtn.addEventListener("click", () => {
   location.assign("/index.html");
 });
 
+// Delete a checklist
 removeBtn.addEventListener("click", () => {
   removeList(checklist.id);
   saveChecklists(checklists);
   location.assign("/index.html");
 });
 
-addTaskBtn.addEventListener("click", () => {
-  const item = itemEl.value;
+// Add Item from input
+// TODO:: DISPLAY MSG ON EMPTY OR DUPLICATE ITEM
+function addItem() {
+  const item = newItemEl.value;
   if (item.length > 0) {
     addChecklistItem(checklist, item);
     checklist.updatedAt = moment().valueOf();
     saveChecklists(checklists);
+    newItemEl.value = "";
+    newItemEl.focus();
   } else {
     console.log("empty");
   }
+}
+
+addTaskBtn.addEventListener("click", addItem);
+newItemEl.addEventListener("keypress", e => {
+  if (e.keyCode === 13 || e.which === 13) {
+    addItem();
+  }
 });
 
+// clicks on UL to perfom delete and check items
 itemListEl.addEventListener("click", e => {
-  console.log(e.target);
+  let itemToRemove, id;
+  // Remove Item
+  if (e.target && e.target.parentElement.matches(".item__delete")) {
+    itemToRemove = e.target.parentElement.parentElement;
+    // 15 mins to realise why findIndex was not working
+    id = parseInt(itemToRemove.className.split("-")[1]);
+    removeItem(checklist, id);
+    saveChecklists(checklists);
+    populateItems(checklist.items);
+  }
 });
 
 // remove item from a checklist

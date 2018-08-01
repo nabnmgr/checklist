@@ -54,10 +54,20 @@ const emptyMsg = function() {
 
 // add item for a checklist
 const addChecklistItem = function(checklist, item) {
+  let id;
+
   const itemFound = checklist.items.some(listItem => listItem.name === item);
-  console.log(itemFound);
   if (!itemFound) {
+    // create new ID
+    if (checklist.items.length > 0) {
+      // set id to last item's value + 1 NOT the length
+      id = checklist.items[checklist.items.length - 1].id + 1;
+    } else {
+      id = 0;
+    }
+
     checklist.items.push({
+      id,
       name: item,
       completed: false
     });
@@ -72,7 +82,7 @@ const populateItems = function(items) {
   let html = "";
   items.forEach(item => {
     html += `
-      <li class="item">
+      <li class="item item-${item.id}">
         <p class="item__name">${item.name}</p>
         <a class="item__delete">
           <ion-icon name="trash"></ion-icon>
@@ -81,4 +91,12 @@ const populateItems = function(items) {
     `;
   });
   itemListEl.innerHTML = html;
+};
+
+// remove an item
+const removeItem = function(checklist, itemId) {
+  const itemIndex = checklist.items.findIndex(item => item.id === itemId);
+  if (itemIndex !== -1) {
+    checklist.items.splice(itemIndex, 1);
+  }
 };
