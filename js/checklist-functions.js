@@ -82,7 +82,7 @@ const populateItems = function(items) {
   let html = "";
   items.forEach(item => {
     html += `
-      <li class="item item-${item.id}">
+      <li class="item item-${item.id}${item.completed ? " completed" : ""}">
         <p class="item__name">${item.name}</p>
         <a class="item__delete">
           <ion-icon name="trash"></ion-icon>
@@ -99,4 +99,15 @@ const removeItem = function(checklist, itemId) {
   if (itemIndex !== -1) {
     checklist.items.splice(itemIndex, 1);
   }
+};
+
+// TOGGLE item
+const toggleItem = function(items, itemId) {
+  const item = items.find(item => item.id === itemId);
+  if (item) {
+    item.completed = !item.completed;
+  }
+  // toggle class
+  const itemClass = document.querySelector(`li.item-${itemId}`).classList;
+  item.completed ? itemClass.add("completed") : itemClass.remove("completed");
 };

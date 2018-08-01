@@ -165,19 +165,24 @@ header {
   .items .item {
     background: #f6f6f6;
     margin: 1.5rem 0;
-    padding: 1.5rem 4rem;
+    padding: 0.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: all 0.2s; }
     .items .item__name {
       letter-spacing: 1px;
-      font-size: 1.6rem; }
+      font-size: 1.6rem;
+      padding: 1rem 0;
+      width: 100%; }
     .items .item__delete {
       font-size: 2.2rem;
       color: #606f7b;
       transition: all 0.2s; }
       .items .item__delete:hover {
         color: #ef5753; }
-    .items .item:hover {
-      background: #f8fafc; }
+  .items .completed {
+    background: #c5c4f2;
+    text-decoration: line-through;
+    text-decoration-color: #606f7b;
+    transition: all 0.2s; }

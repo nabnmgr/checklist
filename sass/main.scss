@@ -248,7 +248,7 @@ header {
   .item {
     background: rgb(246, 246, 246);
     margin: 1.5rem 0;
-    padding: 1.5rem 4rem;
+    padding: 0.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -257,6 +257,8 @@ header {
     &__name {
       letter-spacing: 1px;
       font-size: 1.6rem;
+      padding: 1rem 0;
+      width: 100%;
     }
 
     &__delete {
@@ -269,8 +271,15 @@ header {
       }
     }
 
-    &:hover {
-      background: $color-grey-light-1;
-    }
+    // &:hover {
+    //   background: $color-grey-light-1;
+    // }
+  }
+
+  .completed {
+    background: #c5c4f2;
+    text-decoration: line-through;
+    text-decoration-color: $color-grey-dark-2;
+    transition: all 0.2s;
   }
 }

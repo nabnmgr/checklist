@@ -23,7 +23,7 @@ titleEl.value = checklist.title;
 populateItems(checklist.items);
 
 saveBtn.addEventListener("click", () => {
-  checklist.title = titleEl.value;
+  checklist.title = titleEl.value.trim();
   checklist.updatedAt = moment().valueOf();
   saveChecklists(checklists);
   location.assign("/index.html");
@@ -39,7 +39,7 @@ removeBtn.addEventListener("click", () => {
 // Add Item from input
 // TODO:: DISPLAY MSG ON EMPTY OR DUPLICATE ITEM
 function addItem() {
-  const item = newItemEl.value;
+  const item = newItemEl.value.trim();
   if (item.length > 0) {
     addChecklistItem(checklist, item);
     checklist.updatedAt = moment().valueOf();
@@ -60,7 +60,7 @@ newItemEl.addEventListener("keypress", e => {
 
 // clicks on UL to perfom delete and check items
 itemListEl.addEventListener("click", e => {
-  let itemToRemove, id;
+  let itemToRemove, id, itemToChange;
   // Remove Item
   if (e.target && e.target.parentElement.matches(".item__delete")) {
     itemToRemove = e.target.parentElement.parentElement;
@@ -70,6 +70,12 @@ itemListEl.addEventListener("click", e => {
     saveChecklists(checklists);
     populateItems(checklist.items);
   }
-});
 
-// remove item from a checklist
+  // Toggle item completion
+  if (e.target && e.target.parentElement.matches(".item")) {
+    itemToChange = e.target.parentElement;
+    id = parseInt(itemToChange.className.split(" ")[1].split("-")[1]);
+    toggleItem(checklist.items, id);
+    saveChecklists(checklists);
+  }
+});
