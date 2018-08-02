@@ -28,18 +28,29 @@ const removeList = id => {
 
 // generate checklists results
 const populateList = function(lists) {
-  let html = "";
+  let html = "",
+    remainingItems = "";
 
   if (checklists.length === 0) {
     html = emptyMsg();
   } else {
     lists.forEach(list => {
+      // how much items has been completed
+      if (list.items.length > 0) {
+        const checked = list.items.filter(item => item.completed === true);
+        remainingItems = `${checked.length} / ${list.items.length}`;
+      } else {
+        remainingItems = "No items";
+      }
+
       html += `
       <a href="/edit.html#${list.id}" class="list-item">
         <p class="list-item__title">
           ${list.title.length > 0 ? list.title : "Untitled"}
         </p>
-        <p class="list-item__subtitle">${list.id}</p>
+        <p class="list-item__subtitle">
+          ${remainingItems}
+        </p>
       </a>
       `;
     });

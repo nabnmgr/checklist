@@ -183,6 +183,10 @@ header {
 
 .list-item__subtitle {
   color: #666;
+  background: rgb(241, 240, 240);
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
   font-size: 1.4rem;
   font-weight: 300;
   font-style: italic;
@@ -253,6 +257,7 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: all 0.2s;
+    cursor: pointer;
 
     &__name {
       letter-spacing: 1px;
@@ -270,13 +275,9 @@ header {
         color: #ef5753;
       }
     }
-
-    // &:hover {
-    //   background: $color-grey-light-1;
-    // }
   }
 
-  .completed {
+  .item.completed {
     background: #c5c4f2;
     text-decoration: line-through;
     text-decoration-color: $color-grey-dark-2;

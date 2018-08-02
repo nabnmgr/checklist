@@ -123,6 +123,10 @@ header {
 
 .list-item__subtitle {
   color: #666;
+  background: #f1f0f0;
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
   font-size: 1.4rem;
   font-weight: 300;
   font-style: italic; }
@@ -169,7 +173,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.2s; }
+    transition: all 0.2s;
+    cursor: pointer; }
     .items .item__name {
       letter-spacing: 1px;
       font-size: 1.6rem;
@@ -181,7 +186,7 @@ header {
       transition: all 0.2s; }
       .items .item__delete:hover {
         color: #ef5753; }
-  .items .completed {
+  .items .item.completed {
     background: #c5c4f2;
     text-decoration: line-through;
     text-decoration-color: #606f7b;
