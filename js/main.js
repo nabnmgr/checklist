@@ -1,6 +1,21 @@
 let checklists = getChecklists();
-
+7;
+checklists = lastEdited(checklists);
 populateList(checklists);
+
+document.querySelector("#filter-by").addEventListener("change", e => {
+  let filterBy = e.target.value;
+  if (filterBy === "byCreated") {
+    checklists = lastCreated(checklists);
+  } else if (filterBy === "alphabetical") {
+    checklists = alphabetical(checklists);
+    console.log(checklists);
+  } else if (filterBy === "byEdited") {
+    checklists = lastEdited(checklists);
+  }
+
+  populateList(checklists);
+});
 
 // create new checklist button
 document.querySelector("#create-checklist").addEventListener("click", () => {
@@ -21,3 +36,5 @@ document.querySelector("#create-checklist").addEventListener("click", () => {
   // provide checklist id
   location.assign(`/edit.html#${id}`);
 });
+
+// console.log(lastCreated(checklists));

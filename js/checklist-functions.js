@@ -63,6 +63,25 @@ const emptyMsg = function() {
   return '<p class="empty-message">No checklist to show</p>';
 };
 
+/////////////////////////////////////////////////////
+// SORTING checklists
+////////////////////////////////////////////////////
+const lastEdited = function(checklists) {
+  return checklists.sort((a, b) => b.updatedAt - a.updatedAt);
+};
+
+const lastCreated = function(checklists) {
+  return checklists.sort((a, b) => b.createdAt - a.createdAt);
+};
+
+const alphabetical = function(checklists) {
+  return checklists.sort((a, b) => {
+    let textA = a.title.toLowerCase();
+    let textB = b.title.toLowerCase();
+    return textA < textB ? -1 : textA > textB ? 1 : 0;
+  });
+};
+
 // add item for a checklist
 const addChecklistItem = function(checklist, item) {
   let id;
