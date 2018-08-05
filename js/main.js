@@ -9,11 +9,9 @@ document.querySelector("#filter-by").addEventListener("change", e => {
     checklists = lastCreated(checklists);
   } else if (filterBy === "alphabetical") {
     checklists = alphabetical(checklists);
-    console.log(checklists);
   } else if (filterBy === "byEdited") {
     checklists = lastEdited(checklists);
   }
-
   populateList(checklists);
 });
 
@@ -36,5 +34,3 @@ document.querySelector("#create-checklist").addEventListener("click", () => {
   // provide checklist id
   location.assign(`/edit.html#${id}`);
 });
-
-// console.log(lastCreated(checklists));

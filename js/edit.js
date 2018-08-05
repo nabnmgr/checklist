@@ -67,6 +67,7 @@ itemListEl.addEventListener("click", e => {
     // 15 mins to realise why findIndex was not working
     id = parseInt(itemToRemove.className.split("-")[1]);
     removeItem(checklist, id);
+    checklist.updatedAt = moment().valueOf();
     saveChecklists(checklists);
     populateItems(checklist.items);
   }
@@ -76,6 +77,7 @@ itemListEl.addEventListener("click", e => {
     itemToChange = e.target.parentElement;
     id = parseInt(itemToChange.className.split(" ")[1].split("-")[1]);
     toggleItem(checklist.items, id);
+    checklist.updatedAt = moment().valueOf();
     saveChecklists(checklists);
   }
 });
