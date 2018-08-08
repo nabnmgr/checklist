@@ -103,7 +103,7 @@ const addChecklistItem = function(checklist, item) {
     });
     populateItems(checklist.items);
   } else {
-    console.log("Item alreaddy here");
+    alert(`"${item}" is already on the checklist.`);
   }
 };
 

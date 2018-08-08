@@ -47,7 +47,7 @@ function addItem() {
     newItemEl.value = "";
     newItemEl.focus();
   } else {
-    console.log("empty");
+    alert("Cannot add an empty value. Please input something");
   }
 }
 
